@@ -14,7 +14,7 @@ with open(ann_file, encoding="UTF-8") as in_ann:
 
 print("done...")
 if annotations is not None and orig_lines is not None:
-    print("computing offset to line map...")
+    print("computing line to annotation map...")
     # get the list of (offset, id) tuple from the tagtok json
     offsets = [(int(e["offsets"][0]['start']), e["classId"]) for e in annotations["entities"]]
     # sort the list by character offset (first element of each pair in the list)
@@ -29,7 +29,7 @@ if annotations is not None and orig_lines is not None:
     # We continue advancing in parallel from the current line without reset,
     # as the next offset is necessarily contained in a subsequent line
     # since the offsets are sorted by increasing order.
-    line_annotations = defaultdict(lambda : "None")
+    line_annotations = defaultdict(lambda: "None")
     # we need to keep track of the character offset we're currently looking for
     # we do this by remembering its index in the list 'offsets'
     c_offset_index = 0
