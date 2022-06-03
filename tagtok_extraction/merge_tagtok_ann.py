@@ -64,7 +64,7 @@ if annotations is not None and orig_lines is not None:
         columns = line.strip().split("\t")
         # we make a new entry containing the timestamp (column #9) text (column #10) and annotation id
         # to get the annotation id we use the offset to line map
-        entry = (columns[8], columns[9], line_annotations[line_index])
+        entry = (columns[6], columns[8], columns[9], line_annotations[line_index])
         # store the entry
         data.append(entry)
     print("...done")
