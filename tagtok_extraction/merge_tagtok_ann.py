@@ -73,3 +73,4 @@ if annotations is not None and orig_lines is not None:
     with open(sys.argv[3], 'w', encoding="UTF-8") as f_out:
         f_out.write('\n'.join(['\t'.join(entry) for entry in data]))
     print('...done')
+    
